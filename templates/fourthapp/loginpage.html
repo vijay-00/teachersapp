@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>DATAMATE LOGIN</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome5-overrides.min.css'%}">
+</head>
+
+<body class="d-xl-flex align-items-xl-center bg-gradient-primary">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9 col-lg-12 col-xl-10">
+            <div class="card shadow-lg o-hidden border-0 my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-flex">
+                            <div class="flex-grow-1 bg-login-image"
+                                 style="background-image: url(&quot;{% static 'assets/img/dogs/data.jpg' %}&quot;);"></div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h4 class="text-dark mb-4">DataMate</h4>
+                                </div>
+                                <form class="user" method="POST">
+                                    {% csrf_token %}
+                                    <div>{% if messages %}
+                                        {% for message in messages %}
+
+                                        <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 fill="currentColor"
+                                                 class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                                 viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                            </svg>
+                                            <div>
+                                                {{message}}
+                                            </div>
+                                        </div>
+
+                                        {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text"
+                                                                   id="exampleInputEmail" aria-describedby="emailHelp"
+                                                                   placeholder="Enter your Username" name="username">
+                                    </div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text"
+                                                                   id="exampleInputEmail" aria-describedby="emailHelp"
+                                                                   placeholder="Enter your Userid" name="userid">
+                                    </div>
+
+                                    <div class="form-group"><input class="form-control form-control-user"
+                                                                   type="password" id="exampleInputPassword"
+                                                                   placeholder="Password" name="password"></div>
+                                    <!--                                    <button class="btn btn-primary btn-block text-white btn-user" type="submit">Login-->
+                                    <!--                                    </button-->
+
+                                    <button class="btn btn-success btn-block text-white btn-user" type="submit">Login
+                                    </button>
+                                    <hr>
+                                </form>
+                                <div class="text-center"><a class="small" href="forgot-password.html">Forgot
+                                    Password?</a></div>
+                                <div class="text-center"><a class="small" href="{% url 'registerpage'%}">Create an
+                                    Account!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="{% static 'assets/js/theme.js'%}"></script>
+</body>
+
+</html>
